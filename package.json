@@ -1,0 +1,26 @@
+{
+  "name": "cyo",
+  "version": "0.0.0",
+  "devDependencies": {
+    "del": "*",
+    "gulp": "*",
+    "gulp-clean-css": "*",
+    "gulp-concat": "*",
+    "gulp-filter": "*",
+    "gulp-load-plugins": "*",
+    "gulp-minify-html": "*",
+    "gulp-minify-css": "*",
+    "gulp-ng-annotate": "*",
+    "gulp-rev": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-uglify": "*",
+    "gulp-usemin": "^0.3.23",
+    "main-bower-files": "*",
+    "del": "^2.2.0",
+    "gulp-filter": "^4.0.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rev": "^7.0.0"
+  },
+  "dependencies": {
+  }
+}

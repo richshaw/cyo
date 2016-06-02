@@ -1,11 +1,12 @@
 {
   "name": "cyo",
   "version": "0.0.0",
-  "homepage": "https://github.com/danielstern/cyo",
+  "homepage": "https://github.com/richshaw/cyo",
   "description": "a choose your own adventure module",
-  "main": "js/cyo.js",
+  "main": "dist/cyo.js",
   "authors": [
-    "danielstern"
+    "danielstern",
+    "richshaw"
   ],
   "license": "MIT",
   "ignore": [
@@ -16,7 +17,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.20",
-    "bootstrap": "~3.2.0"
+    "angular": "latest"
   }
 }
