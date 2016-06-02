@@ -26,13 +26,7 @@
     <body>
         <story>
           <h2>A Game</h2>
-          <page intro>
-              <p>You're in a spooky forest.</p>
-              <p>"You'll never get out of here alive," says Smeemog, the grumpy dwarf.</p>
-              <p>"I'll show you who won't get out of here alive," you say, but deep down, you're worried he's right.</p>
-              <button choice stay-put>Wait to get rescued</button>
-              <button choice look-around>We must explore this magic forest</button>
-          </page>
+          <page intro ng-include="'partials/intro.html'"></page>
           <page stay-put>
               <p>"We should wait here until we get rescued."</p>
               <p>"Thought it might be snakes, or maybe a pit, but I never thought I'd be <i>bored</i> to death."</p>
