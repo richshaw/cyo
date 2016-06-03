@@ -14,12 +14,14 @@
             $scope.isFirstPage = true;
         }
 
-        var pageName = Object.keys($attrs.$attr);
-        if (pageName[0] == "page") pageName.shift();
-
-        $scope.pageName = pageName[0];
-
-        $scope.pages.push(pageName[0]);
+        if($attrs.hasOwnProperty('page')) {
+            $scope.pageName = $attrs.page;
+        }
+        else if($attrs.hasOwnProperty('name')) {
+            $scope.pageName = $attrs.name;
+        }
+        
+        $scope.pages.push($scope.pageName);
 
         $scope.$watch("decisions", function() {
             if ($scope.decisions.indexOf($scope.pageName) > -1) {

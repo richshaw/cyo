@@ -8,18 +8,23 @@
     choiceController.$inject = ['$scope','$attrs','$element'];
 
     function choiceController($scope,$attrs,$element) {
-        var choiceName = Object.keys($attrs.$attr);
-        if (choiceName[0] === "choice") choiceName.shift();
+
+        if($attrs.hasOwnProperty('choice')) {
+            var choiceName = $attrs.choice;
+        }
+        else if($attrs.hasOwnProperty('name')) {
+            var choiceName = $attrs.name;
+        }
 
         angular.element($element).on("click", function() {
             $scope.completedPages.push($scope.pageName);
-            $scope.decisions.push(choiceName[0]);
+            $scope.decisions.push(choiceName);
             $scope.$apply();
         });
 
         $scope.$watch("pages", function() {
-            if ($scope.pages.indexOf(choiceName[0]) == -1) {
-                console.error("A choice has no corresponding page,", choiceName[0]);
+            if ($scope.pages.indexOf(choiceName) == -1) {
+                console.error("A choice has no corresponding page,", choiceName);
                 $element.css("border", "2px solid red");
                 $element.css("pointer-events", "none");
             }

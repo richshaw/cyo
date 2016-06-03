@@ -1,4 +1,3 @@
-/*
 (function() {
     'use strict';
 
@@ -16,4 +15,3 @@
         $scope.decisions = ['intro'];
     }
 })();
-*/
