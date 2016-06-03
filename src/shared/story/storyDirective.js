@@ -11,7 +11,16 @@
         return {
             restrict: "EA",
             scope: true,
-            controller: "storyController",
+            controller: storyController
         }
+
+        function storyController($scope,$attrs,$element) {
+            $scope.storyEvents = [];
+            $scope.choices = [];
+            $scope.pages = [];
+            $scope.completedPages = [];
+            $scope.decisions = ['intro'];
+        }
+
     }
 })();

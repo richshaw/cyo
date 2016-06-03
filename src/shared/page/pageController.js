@@ -21,8 +21,6 @@
 
         $scope.pages.push(pageName[0]);
 
-        console.log($scope);
-
         $scope.$watch("decisions", function() {
             if ($scope.decisions.indexOf($scope.pageName) > -1) {
                 $element.css("display", "block");
