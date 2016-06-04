@@ -2,6 +2,9 @@
 <html ng-app="cyo">
     <head>
         <title>CYO</title>
+
+        <link rel="stylesheet" type="text/css" href="./shared/input/nlText.css">
+
         <!-- build:vendor js/vendor.js -->
         <script src="./js/angular.js"></script>
         <!-- endbuild -->
@@ -21,14 +24,19 @@
         <script src="./shared/restart/restartController.js"></script>
         <script src="./shared/story/storyDirective.js"></script>
         <script src="./shared/story/storyController.js"></script>
+
+        <script src="./shared/input/nlTextDirective.js"></script>
         <!-- endbuild -->
     </head>
     <body>
         <story>
           <h2>A Game</h2>
+
+          My name is <nl-text ng-model="input.name"></nl-text> the brave adventure cat!
+
           <page name="intro" src="partials/intro.html"></page>
           <page name="stay-put">
-              <p>"We should wait here until we get rescued."</p>
+              <p>"{{input.name || "We"}} should wait here until we get rescued."</p>
               <p>"Thought it might be snakes, or maybe a pit, but I never thought I'd be <i>bored</i> to death."</p>
               <p>In the clearing of the forest, there are three rocks, a tree, and, in another tree, a preposterous-looking owl.</p>
               <button choice="investigate-rocks">I ought to investigate these rocks</button>

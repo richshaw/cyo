@@ -1,0 +1,36 @@
+nl-text, [nl-text] {
+    border:0;
+    border-bottom: 2px solid;
+    padding-bottom: 2px;
+
+    border-color: rgba(0,0,0,0.12);
+    display: inline-block;
+    min-width: 150px;
+    height: auto;
+    
+    /*
+    min-height: 36px;
+
+    background-color:rgba(232, 234, 246,0.2);
+    
+    line-height: 36px; /* inline block line-height needs to == auto height of inline. No idea how auto height gets to 36px */
+
+    vertical-align: middle; /* For FF */
+
+    &.ng-not-empty {
+        min-width: 50px;
+    }
+
+    &.inline {
+        display: inline;
+    }
+
+    &:focus {
+       border-bottom-color: rgb(76,175,80); 
+       outline: none;
+    }
+
+    &.ng-dirty.ng-invalid {
+        border-bottom-color: red; 
+    }
+}
