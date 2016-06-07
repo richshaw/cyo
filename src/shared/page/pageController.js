@@ -20,6 +20,9 @@
         else if($attrs.hasOwnProperty('name')) {
             $scope.pageName = $attrs.name;
         }
+        else {
+            $scope.pageName = $attrs.$attr[Object.keys($attrs.$attr)[0]];
+        }
         
         $scope.pages.push($scope.pageName);
 

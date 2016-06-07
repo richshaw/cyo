@@ -8,9 +8,20 @@
     eventController.$inject = ['$scope','$attrs','$element'];
 
     function eventController($scope,$attrs,$element) {
-        var storyEvent = Object.keys($attrs.$attr);
+
+        var storyEvent;
+        if($attrs.hasOwnProperty('event')) {
+            storyEvent = $attrs.event;
+        }
+        else if($attrs.hasOwnProperty('name')) {
+            storyEvent = $attrs.name;
+        }
+        else {
+            storyEvent = $attrs.$attr[Object.keys($attrs.$attr)[0]];
+        }
+
         var isNegative = false;
-        if (storyEvent[0] === "clear") {
+        if (storyEvent === "clear") {
             isNegative = true;
             storyEvent.shift();
         };
@@ -27,9 +38,9 @@
             console.info("Activating this event", storyEvent, !isNegative);
 
             if (!isNegative) {
-                $scope.storyEvents.push(storyEvent[0]);
+                $scope.storyEvents.push(storyEvent);
             } else {
-                var index = $scope.storyEvents.indexOf(storyEvent[0]);
+                var index = $scope.storyEvents.indexOf(storyEvent);
                 $scope.storyEvents.splice(index, 1);
             };
         }

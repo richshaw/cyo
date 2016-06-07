@@ -9,13 +9,24 @@
 
     function conditionController($scope,$attrs,$element) {
         $element.css("display", "none");
-        var condition = Object.keys($attrs.$attr);
+        
+        var condition;
+        if($attrs.hasOwnProperty('condition')) {
+            condition = $attrs.condition;
+        }
+        else if($attrs.hasOwnProperty('name')) {
+            condition = $attrs.name;
+        }
+        else {
+            condition = $attrs.$attr[Object.keys($attrs.$attr)[0]];
+        }
+
         var isNegative = false;
         var activated = false;
 
         $scope.isCondition = true;
 
-        if (condition[0] === "unless" || condition[0] === "not") {
+        if (condition === "unless" || condition === "not") {
             isNegative = true;
             condition.shift();
         };
@@ -23,10 +34,10 @@
         function activate() {
             if (activated) return;
             activated = true;
-            if ($scope.storyEvents.indexOf(condition[0]) > -1 && !isNegative) {
+            if ($scope.storyEvents.indexOf(condition) > -1 && !isNegative) {
                 $scope.conditionValid = true;
                 $element.css("display", "block");
-            } else if ($scope.storyEvents.indexOf(condition[0]) == -1 && isNegative) {
+            } else if ($scope.storyEvents.indexOf(condition) == -1 && isNegative) {
                 $scope.conditionValid = true;
                 $element.css("display", "block");
             }

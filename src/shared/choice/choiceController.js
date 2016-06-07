@@ -9,11 +9,15 @@
 
     function choiceController($scope,$attrs,$element) {
 
+        var choiceName;
         if($attrs.hasOwnProperty('choice')) {
-            var choiceName = $attrs.choice;
+            choiceName = $attrs.choice;
         }
         else if($attrs.hasOwnProperty('name')) {
-            var choiceName = $attrs.name;
+            choiceName = $attrs.name;
+        }
+        else {
+            choiceName = $attrs.$attr[Object.keys($attrs.$attr)[0]];
         }
 
         angular.element($element).on("click", function() {
