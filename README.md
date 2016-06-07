@@ -1,35 +1,20 @@
-![cyo](https://raw.githubusercontent.com/danielstern/cyo/master/cyo-logo.png)
-
 CYO (Choose Your Own) is an extremely simple, but powerful, storytelling engine built with Angular.js.
 
-<!--http://colourco.de/triad/5/%23409532*/-->
-<a target="_new" href="http://danielstern.github.io/cyo/">Check Out the Project Page</a>
+Idea based code from <a target="_new" href="http://danielstern.github.io/cyo/">Check Out the original</a>
 
-CYO
-===
-Introduction
-------------
+# CYO
+
+## Introduction
+
 CYO uses Angular directives to create rich storytelling experiences with an easy-to-remember syntax.
 
-
-CYO 2.0 is Out!
----------------
-- No more file loading
---> CYO is now all written right in to your HTML. Way faster this way! No file directory structure required.
-- No dependencies!
---> CYO only requires Angular to work
-- Added the restart directive
---> Easily restart stories
-
-<a target="_new" href="http://danielstern.github.io/cyo/">Full getting started details are available at the project page.</a>
-
-The Characters
+## The Characters
 -----------
 *Also known as "The Directives", wherein an interactive adventure is created, and Javascript fumes about not being needed.*
 
 You can use these tools freely in your project to create your own interactive story adventure.
 
-###Story
+### Story
 The story tag initializes your story by pointing to your first chapter.
 
 You initialize your CYO with a simple `story` tag.
@@ -42,17 +27,24 @@ And a splendid story it will be.
 
 This element has to contain all the other elements. You can have multiple stories on a single page.
 
-###Page
+### Page
 Pages are hidden automatically and appear when choices are pressed.
 
 ```html
-<page>
+<page name="enter-tavern">
 	<p>
 		You see a grizzled old man tending a hearth.
 		<i>Something doesn't feel right here.</i>
 	</p>
 </page>
 ```
+
+For more complex stories it can be easier to store pages in as separted html partials which can be loaded using the ```src``` attribute.
+
+```html
+<page name="enter-tavern" src="./path/to/enter-tavern.html"></page>
+```
+
 
 ### Choice
 
@@ -62,8 +54,19 @@ Choices make up the bread and butter of the interactive storytelling process. Cl
 <page>
 		<p>You see a fork in the path. </p>
 		<p>*Hmm... should I go left or right?*</p>
-	<choice go-left>Guess I'll go left.</choice>
-	<choice go-right>Right, definitely right.</choice>
+	<choice name="go-left">Guess I'll go left.</choice>
+	<choice name="go-right">Right, definitely right.</choice>
+</page>
+```
+
+Alternatively you can set choices on other elements.
+
+```html
+<page>
+		<p>You see a fork in the path. </p>
+		<p>*Hmm... should I go left or right?*</p>
+	<button choice="go-left">Guess I'll go left.</button>
+	<button choice="go-right">Right, definitely right.</button>
 </page>
 ```
 
