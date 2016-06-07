@@ -1,0 +1,2 @@
+[master 62d1b78] Added backward compatibly and consistency to directive naming <page hello> <page name=hello> <div page=hello
+ 4 files changed, 39 insertions(+), 10 deletions(-)

@@ -26,9 +26,8 @@
 
         $scope.isCondition = true;
 
-        if (condition === "unless" || condition === "not") {
+        if ($attrs.hasOwnProperty('unless') || $attrs.hasOwnProperty('not')) {
             isNegative = true;
-            condition.shift();
         };
 
         function activate() {
