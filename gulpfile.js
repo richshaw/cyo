@@ -32,24 +32,13 @@ gulp.task('css', function() {
 gulp.task('usemin', function () {
   return gulp.src('./src/index.html')
       .pipe(plugins.usemin({
-        css: ['concat', plugins.minifyCss(), plugins.rev()],
-        app: [
+        cyo: [
             plugins.ngAnnotate(),
             plugins.sourcemaps.init({
                 loadMaps: true
             }),
             'concat',
             plugins.uglify(),
-            plugins.rev(),
-            plugins.sourcemaps.write('./')
-        ],
-        vendor:[
-            plugins.sourcemaps.init({
-                loadMaps: true
-            }),
-            'concat',
-            plugins.uglify(),
-            plugins.rev(),
             plugins.sourcemaps.write('./')
         ]
       }))
