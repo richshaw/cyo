@@ -28,7 +28,7 @@
 
         $scope.$watch("decisions", function() {
             if ($scope.decisions.indexOf($scope.pageName) > -1) {
-                $element.css("display", "block");
+                $element.css("display", "");
             } else if (!$scope.isFirstPage) {
                 $element.css("display", "none");
             }
