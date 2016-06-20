@@ -20,7 +20,7 @@ The story tag initializes your story by pointing to your first chapter.
 You initialize your CYO with a simple `story` tag.
 
 ```html
-<story>
+<story name="tale of awesome">
 And a splendid story it will be.
 </story>
 ```
