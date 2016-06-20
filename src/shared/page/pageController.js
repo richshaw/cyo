@@ -5,11 +5,11 @@
         .module('cyo')
         .controller('pageController', pageController)
 
-    pageController.$inject = ['$scope','$attrs','$element'];
+    pageController.$inject = ['$scope','$attrs','$element','$animate'];
 
-    function pageController($scope,$attrs,$element) {
+    function pageController($scope,$attrs,$element,$animate) {
         if ($scope.pages.length) {
-            $element.css("display", "none");
+            $animate.addClass($element,'ng-hide');
         } else {
             $scope.isFirstPage = true;
         }
@@ -28,9 +28,9 @@
 
         $scope.$watch("decisions", function() {
             if ($scope.decisions.indexOf($scope.pageName) > -1) {
-                $element.css("display", "");
+                $animate.removeClass($element,'ng-hide');
             } else if (!$scope.isFirstPage) {
-                $element.css("display", "none");
+                $animate.addClass($element,'ng-hide');
             }
         }, true);
     }

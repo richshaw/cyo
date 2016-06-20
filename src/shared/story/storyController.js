@@ -21,6 +21,5 @@
         }
 
         $scope = angular.extend($scope, storyService.getStory(storyName));
-        console.log(storyService.getStory(storyName));
     }
 })();
