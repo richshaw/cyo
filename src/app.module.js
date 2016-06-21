@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('cyo', []);
+    angular.module('cyo', ['ngAnimate']);
 
     /**
     Run app

@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "latest"
+    "angular": "latest",
+    "angular-animate": "latest"
   }
 }
