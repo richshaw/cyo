@@ -5,9 +5,9 @@
         .module('cyo')
         .controller('choiceController', choiceController)
 
-    choiceController.$inject = ['$scope','$attrs','$element'];
+    choiceController.$inject = ['$scope','$attrs','$element','$animate'];
 
-    function choiceController($scope,$attrs,$element) {
+    function choiceController($scope,$attrs,$element,$animate) {
 
         var choiceName;
         if($attrs.hasOwnProperty('choice')) {
@@ -36,9 +36,9 @@
 
         $scope.$watch("completedPages", function() {
             if ($scope.completedPages.indexOf($scope.pageName) > -1) {
-                $element.css("display", "none");
+                $animate.addClass($element,'ng-hide');
             } else {
-                $element.css("display", "inline-block");
+                $animate.removeClass($element,'ng-hide');
             }
         }, true)
     }
