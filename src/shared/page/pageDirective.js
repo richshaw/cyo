@@ -20,7 +20,7 @@
             if($attr.hasOwnProperty("src")) {
                 // From http://stackoverflow.com/questions/24496201/load-html-template-from-file-into-a-variable-in-angularjs
                 // @Todo: Security check
-                var path = interpolate($attr.src,$scope);
+                var path = $interpolate($attr.src,$scope);
                 var templateUrl = $sce.getTrustedResourceUrl(path);
 
                 $templateRequest(templateUrl).then(function(template) {
