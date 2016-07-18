@@ -21,7 +21,8 @@
                 // From http://stackoverflow.com/questions/24496201/load-html-template-from-file-into-a-variable-in-angularjs
                 // @Todo: Security check
                 var path = $interpolate($attr.src)($scope);
-                var templateUrl = $sce.getTrustedResourceUrl(path);
+                console.log(path);
+                var templateUrl = $sce.getTrustedResourceUrl($attr.src);
 
                 $templateRequest(templateUrl).then(function(template) {
                     // template is the HTML template as a string
