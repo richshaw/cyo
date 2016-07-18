@@ -5,9 +5,9 @@
     .module('cyo')
     .directive('page', page);
 
-    page.$inject = ['$sce','$templateRequest','$compile','$interpolate'];
+    page.$inject = ['$sce','$templateRequest','$compile','$parse'];
 
-    function page($sce,$templateRequest,$compile,$interpolate) {
+    function page($sce,$templateRequest,$compile,$parse) {
         return {
             restrict: "EA",
             scope: true,
@@ -20,9 +20,8 @@
             if($attr.hasOwnProperty("src")) {
                 // From http://stackoverflow.com/questions/24496201/load-html-template-from-file-into-a-variable-in-angularjs
                 // @Todo: Security check
-                var path = $interpolate($attr.src)($scope);
-                console.log(path);
-                var templateUrl = $sce.getTrustedResourceUrl($attr.src);
+                var path = $parse($attr.src)($scope);
+                var templateUrl = $sce.getTrustedResourceUrl(path);
 
                 $templateRequest(templateUrl).then(function(template) {
                     // template is the HTML template as a string
@@ -31,7 +30,6 @@
                 }, function() {
                     // An error has occurred
                 });
-
             }
 
         }

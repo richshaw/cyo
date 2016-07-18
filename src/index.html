@@ -21,11 +21,15 @@
         <script src="./shared/story/storyController.js"></script>
         <script src="./shared/story/storyService.js"></script>
         <!-- endbuild -->
+
+        <script type="text/javascript">
+          var path = "BOOM";
+        </script>
     </head>
     <body>
         <story name="tale of awesome">
           <h2>A Game</h2>
-          <page name="intro" src="partials/intro.html"></page>
+          <page name="intro" src="path + 'partials/intro.html'"></page>
           <page name="stay-put">
               <p>"{{input.name || "We"}} should wait here until we get rescued."</p>
               <p>"Thought it might be snakes, or maybe a pit, but I never thought I'd be <i>bored</i> to death."</p>
@@ -34,7 +38,7 @@
               <button choice="check-tree-out">I want to check out this tree</button>
               <button choice="talk-to-owl">"Hey you! Owl! I'm talking to you."</button>
           </page>
-          <page name="talk-to-owl" src="partials/talk-to-owl.html"></page>
+          <page name="talk-to-owl" src="'partials/talk-to-owl.html'"></page>
           <page name="taunt-owl">
               <p>One thing about yourself that you know for sure - you hate owls/</p>
               <p>"Hey! Owl! You're stupid-looking!"</p>
