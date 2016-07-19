@@ -27,7 +27,10 @@
         }
 
         function resetStory(storyName) {
-            stories[storyName] = new story();
+            stories[storyName].storyEvents = [];
+            stories[storyName].choices = [];
+            stories[storyName].completedPages = [];
+            stories[storyName].decisions = ['intro'];
             return;
         }
 
