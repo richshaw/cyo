@@ -25,6 +25,7 @@
         }
 
         function updateStories() {
+            console.log(updateFunctions);
             for (i = 0; i < updateFunctions.length; i++) {
                 updateFunctions[i]();
             }
