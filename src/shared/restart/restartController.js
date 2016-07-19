@@ -9,13 +9,14 @@
 
     function restartController($scope,$attrs,$element) {
         angular.element($element).on("click", function() {
-
-            $scope.storyEvents = [];
-            $scope.choices = [];
-            $scope.pages = [];
-            $scope.completedPages = [];
-            $scope.decisions = ['intro'];
-
+            
+            [$scope.storyEvents, $scope.decisions, $scope.completedPages].forEach(function(A) {
+                console.log(A);
+                while (A.length > 0) {
+                    console.log(A);
+                    A.pop();
+                }
+            });
             $scope.$apply();
         });
     }

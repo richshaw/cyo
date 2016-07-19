@@ -10,6 +10,7 @@
     function restart() {
         return {
             restrict: "EA",
+            scope: true,
             controller: "restartController",
         }
     }
