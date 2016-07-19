@@ -26,9 +26,15 @@
             return stories[storyName];
         }
 
+        function resetStory(storyName) {
+            stories[storyName] = new story();
+            return;
+        }
+
         return {
             stories: stories,
-            getStory: getStory
+            getStory: getStory,
+            resetStory: resetStory
         }
     }
 })();
