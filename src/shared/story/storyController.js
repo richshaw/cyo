@@ -24,5 +24,11 @@
         storyName = $parse(storyName)($scope);
 
         $scope = angular.extend($scope, storyService.getStory(storyName));
+
+        var updateStory = function updateStory() {
+            $scope = angular.extend($scope, storyService.getStory(storyName));
+        }
+
+        storyService.registerStory(updateStory);
     }
 })();

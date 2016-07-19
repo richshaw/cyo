@@ -18,6 +18,17 @@
         };
 
         var stories = {};
+        var updateFunctions = [];
+
+        function registerStory(func) {
+            updateFunctions.push(func);
+        }
+
+        function updateStories() {
+            for (i = 0; i < updateFunctions.length; i++) {
+                updateFunctions[i]();
+            }
+        }
 
         function getStory(storyName) {
             if(!stories.hasOwnProperty(storyName)) {
@@ -31,13 +42,15 @@
             stories[storyName].choices = [];
             stories[storyName].completedPages = [];
             stories[storyName].decisions = ['intro'];
+            updateStories();
             return;
         }
 
         return {
             stories: stories,
             getStory: getStory,
-            resetStory: resetStory
+            resetStory: resetStory,
+            registerStory: registerStory
         }
     }
 })();

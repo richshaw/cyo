@@ -27,7 +27,6 @@
         $scope.pages.push($scope.pageName);
 
         $scope.$watch("decisions", function() {
-            console.log('page watch');
             if ($scope.decisions.indexOf($scope.pageName) > -1) {
                 $animate.removeClass($element,'ng-hide');
             } else if (!$scope.isFirstPage) {
