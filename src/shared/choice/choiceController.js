@@ -40,6 +40,7 @@
                 $animate.addClass($element,'completed-page');
             } else {
                 $animate.removeClass($element,'completed-page');
+                $animate.removeClass($element,'selected');
             }
         }, true)
     }
