@@ -36,9 +36,9 @@
 
         $scope.$watch("completedPages", function() {
             if ($scope.completedPages.indexOf($scope.pageName) > -1) {
-                $animate.addClass($element,'ng-hide');
+                $animate.addClass($element,'selected');
             } else {
-                $animate.removeClass($element,'ng-hide');
+                $animate.removeClass($element,'selected');
             }
         }, true)
     }
