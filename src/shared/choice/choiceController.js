@@ -29,9 +29,7 @@
 
         $scope.$watch("pages", function() {
             if ($scope.pages.indexOf(choiceName) == -1) {
-                console.error("A choice has no corresponding page,", choiceName);
-                $element.css("border", "2px solid red");
-                $element.css("pointer-events", "none");
+                console.warn("A choice has no corresponding page,", choiceName);
             }
         }, true);
 
