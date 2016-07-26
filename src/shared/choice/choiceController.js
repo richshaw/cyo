@@ -23,7 +23,6 @@
         angular.element($element).on("click", function() {
             $scope.completedPages.push($scope.pageName);
             $scope.decisions.push(choiceName);
-            $animate.addClass($element,'selected');
             $scope.$apply();
         });
 
@@ -38,6 +37,14 @@
                 $animate.addClass($element,'completed-page');
             } else {
                 $animate.removeClass($element,'completed-page');
+                $animate.removeClass($element,'selected');
+            }
+        }, true)
+
+        $scope.$watch("decisions", function() {
+            if ($scope.decisions.indexOf(choiceName) > -1) {
+                $animate.addClass($element,'selected');
+            } else {
                 $animate.removeClass($element,'selected');
             }
         }, true)
